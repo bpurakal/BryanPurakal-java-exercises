@@ -29,7 +29,7 @@ actual command from other text in Unix documentation.
 2.  What does the ~ (tilde) character in the above command to change directory 
     refer to?
 ----
-
+user folder direcotry 
 
 ----
 3.  A good habit to develop, especially while you're developing your skills on 
@@ -38,7 +38,7 @@ actual command from other text in Unix documentation.
 ----
 
 $ pwd
-<type or copy-paste the result here>
+</Users/bryanpurakal/workspace/exercises/m1-w1d1-intro-to-tools-exercises/java-helloworld>
 
 The present working directory displayed should match the directory you changed 
 to in Exercise 1.  Note, the two may not match at the very beginning if you
@@ -53,9 +53,14 @@ changes directory, and the "pwd" command reflects this.
     "long format" flags for the "ls" command.
 ----
 
-$ ls -la
+$ ls -la or $ ls -all
 <type or copy-paste the result here>
-
+total 8
+drwxr-xr-x  5 bryanpurakal  staff   170 Jan 15 14:28 .
+drwxr-xr-x  4 bryanpurakal  staff   136 Jan 15 14:28 ..
+drwxr-xr-x  3 bryanpurakal  staff   102 Jan 15 14:28 database
+-rwxr-xr-x  1 bryanpurakal  staff  1091 Jan 15 14:28 pom.xml
+drwxr-xr-x  4 bryanpurakal  staff   136 Jan 15 14:28 src
 
 ----
 5.  What do the "." and ".." folders displayed in the directory listing in
@@ -63,13 +68,16 @@ $ ls -la
 ----
 
 <type or copy-paste your answer here>
-
+. means current directory
+.. refers to parent directory
 ----
 6.  What are the names of the files, including any dot-files, displayed in the
     directory listing in Exercise 4?
 ----
 
 <type or copy-paste your answer here>
+
+pom.xml
 
 
 ----
@@ -78,7 +86,8 @@ $ ls -la
 ----
 
 <type or copy-paste your answer here>
-
+database
+src
 
 ----
 8.  pom.xml is a Maven build file. You will learn more about Maven in later 
@@ -124,12 +133,29 @@ Did you remember to save "m1-introduction-to-tools-exercise.txt"?
 
 $ git status
 <type or copy-paste the result here>
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   ../../test.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   ../introduction-to-tools-exercises.txt
+
 
 $ git add .
 <type or copy-paste the result here>
-
+No Results 
 $ git commit -m "Good stopping point"
 <type or copy-paste the result here>
+[master 05f5f94] Good stopping point
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.txt
+TecheleorsAir20:java-helloworld bryanpurakal$ 
 
 Note, you do not need to push this commit up to BitBucket. The typical Git 
 workflow is to many small commits to your local repo, with pushes up to 
@@ -144,7 +170,7 @@ BitBucket when a feature, fix, or in this case, assignment is finished.
 $ cd src/main/java/com/techelevator
 $ <enter command to display present working directory>
 <type or copy-paste your present working directory here>
-
+/Users/bryanpurakal/workspace/exercises/m1-w1d1-intro-to-tools-exercises/java-helloworld/src/main/java/com/techelevator
 
 ----
 11. Does the change directory command in Exercise 9 use a relative, or absolute
@@ -152,7 +178,7 @@ $ <enter command to display present working directory>
 ----
 
 <type your answer here>
-
+relative for question 10 
 
 ----
 12. List all the files and folders, including any dot-files or dot-folders in
@@ -161,7 +187,10 @@ $ <enter command to display present working directory>
 
 $ <enter command to list all files and folders including dot-files and dot-folders>
 <type or copy-paste the result here>
-
+total 8
+drwxr-xr-x  3 bryanpurakal  staff  102 Jan 15 14:28 .
+drwxr-xr-x  3 bryanpurakal  staff  102 Jan 15 14:28 ..
+-rwxr-xr-x  1 bryanpurakal  staff  141 Jan 15 14:28 Helloworld.java
 
 ----
 13. "Helloworld.java" is the sole source code file of the Helloworld application.
@@ -176,7 +205,11 @@ destination file.
 
 $ <enter command to list all files and folders in order to confirm the creation of the backup file>
 <type or copy-paste the result here>
-
+total 16
+drwxr-xr-x  4 bryanpurakal  staff  136 Jan 15 15:43 .
+drwxr-xr-x  3 bryanpurakal  staff  102 Jan 15 14:28 ..
+-rwxr-xr-x  1 bryanpurakal  staff  141 Jan 15 14:28 Helloworld.java
+-rwxr-xr-x  1 bryanpurakal  staff  141 Jan 15 15:43 Helloworld.java.backup
 
 ----    
 14. Rename "Helloworld.java.backup" to "Helloworld.java.copy" using the move 
@@ -190,7 +223,10 @@ of the file.
 
 $ <enter command to list all files and folders in order to confirm the renaming of the file>
 <type or copy-paste the result here>
-
+drwxr-xr-x  4 bryanpurakal  staff  136 Jan 15 15:44 .
+drwxr-xr-x  3 bryanpurakal  staff  102 Jan 15 14:28 ..
+-rwxr-xr-x  1 bryanpurakal  staff  141 Jan 15 14:28 Helloworld.java
+-rwxr-xr-x  1 bryanpurakal  staff  141 Jan 15 15:43 Helloworld.java.copy
 
 ----
 15. Let's call this a "feature completion" point in the exercises, and not only
@@ -199,17 +235,23 @@ $ <enter command to list all files and folders in order to confirm the renaming 
 
 $ <enter the Git command to display status>
 <type or copy-paste the result here>
-
+git status
 $ <enter the Git command to "stage" all changes>
 <type or copy-paste the result here>
-
+git add 
 $ <enter the Git command to save all "staged" changes>
 <type or copy-paste the result here>
-
+git -commit
 $ git push
 <type or copy-paste the result here>
-
-
+git push 
+Counting objects: 12, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (12/12), 946 bytes | 0 bytes/s, done.
+Total 12 (delta 3), reused 0 (delta 0)
+To https://bitbucket.org/te-cle-cohort-7/BryanPurakal-java-exercises
+   f22deca..d396dcc  master -> master
 ----
 16. Delete the backup file, "Helloworld.java.copy" using the remove command.
 ----
@@ -220,7 +262,10 @@ The "rm" parameter is the name of the file to be deleted.
 
 $ <enter command to list all files and folders in order to confirm the file deletion>
 <type or copy-paste the result here>
-
+total 8
+drwxr-xr-x  3 bryanpurakal  staff  102 Jan 15 15:47 .
+drwxr-xr-x  3 bryanpurakal  staff  102 Jan 15 14:28 ..
+-rwxr-xr-x  1 bryanpurakal  staff  141 Jan 15 14:28 Helloworld.java
 
 ----
 17. Change directory to the java-helloworld folder using either one of the 
@@ -242,7 +287,7 @@ Regardless of the option you chose, check your new location.
 
 $ <enter command to display present working directory>
 <type or copy-paste your present working directory here>
-
+/Users/bryanpurakal/workspace/exercises/m1-w1d1-intro-to-tools-exercises/java-helloworld
 
 ----
 18. Create a documentation folder named "docs" under java-helloworld, and then
@@ -253,7 +298,7 @@ $ mkdir docs
 $ <enter the command to change directory to "docs" using a relative path>
 $ <enter command to display present working directory>
 <type or copy-paste your present working directory here>
-
+/Users/bryanpurakal/workspace/exercises/m1-w1d1-intro-to-tools-exercises/java-helloworld/docs
 ----
 19. Create a new file name "readme.txt" using Visual Studio Code, and add the text
     "Hello, this is the beginning of the application's documentation."
