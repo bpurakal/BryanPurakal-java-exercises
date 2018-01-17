@@ -53,8 +53,8 @@ public class AfternoonExercises {
         10. Mrs. Hilt found a quarter, 1 dime, and 2 nickels. How much money did
         she find? 
         */
-			double quarter = .25; double dime = .1; double nickels = 2 * .05; 
-			double total$ = quarter + dime + nickels;
+			double quarter = .25; double dime = .1; double nickels = .05; 
+			double total$ = quarter + dime + 2* (nickels);
 			System.out.println(total$);
         /* 
         11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
