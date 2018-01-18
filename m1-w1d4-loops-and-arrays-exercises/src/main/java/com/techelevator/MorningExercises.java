@@ -7,7 +7,7 @@ public class MorningExercises {
     */
     public int[] returnArray() {
         int[] array = {80,8080,443};
-        return null;
+        return array;
     }
 
     /*
@@ -15,7 +15,7 @@ public class MorningExercises {
     */
     public int returnFirstElement() {
         int[] portNumbers = {80,8080,443};
-        return 1;
+        return portNumbers[0];
     }
 
     /*
@@ -23,35 +23,41 @@ public class MorningExercises {
     */
     public int returnLastElement() {
         int[] portNumbers = {80,8080,443};
-        return 1;
+        return portNumbers[2];
     }
 
     /*
     4. Return the first element of the array from the parameters
     */
     public int returnFirstElementOfParam(int[] passedInArray) {
-        return 1;
+        return passedInArray[0];
     }
 
     /*
     5. Return the last element of the array from the parameters
     */
     public int returnLastElementOfParam(int[] passedInArray) {
-        return 1;
+    int i = passedInArray.length - 1; //length - 1 is the index value bc 0 based
+    return passedInArray[i];
+    
     }
     
     /*
     6. Here, a variable is defined within a block. How can we get the value of that outside of the block in order to return it? There are a couple of different ways of doing this, what can you come up with?
     */
     public int returnVariableFromBlock(int number) {
-
+    		int result;
         { // A new block with scoped variables
 
-            int result = number * 5;
+            result = number * 5;
 
-        } // the result variable disappears here
-
-        return number; // We want to return result here. How?
+        }
+        return result;
+        // the result variable disappears here
+        // We want to return result here. How?
+        /*just add int result above the block and change int result in block to result
+        anything that happens to result within brackets still happens and will 
+        happen to result below brackets*/
     }
 
     /*
@@ -65,7 +71,7 @@ public class MorningExercises {
             result *= multiplier;
         }
 
-        return (result == 1); // <-- Change the number to match result and make this be true
+        return (result == 50); // <-- Change the number to match result and make this be true
     }
 
     /*
@@ -86,7 +92,7 @@ public class MorningExercises {
             double eight = five + three;
         }
 
-        return 0;
+        return one;
     }
 
     /*
@@ -102,19 +108,19 @@ public class MorningExercises {
             counter++;
         }
 
-        return (counter == 1); // What should the number be to return true?
+        return (counter == 4); // What should the number be to return true?
     }
 
     /*
     10. This loop is counting incorrectly. What needs to change in the loop for it to count properly?
-    */
+    */ // intialized i = 0; instead of i=1;
     public boolean returnCorrectCount() {
         int[] arrayToLoopThrough = {4, 23, 9};
 
         int counter = 0;
 
         //     Start;       Keep going while         Increment by one;
-        for(int i = 1; i < arrayToLoopThrough.length; i++) {
+        for(int i = 0; i < arrayToLoopThrough.length; i++) {
             counter += 1;
         }
 
@@ -123,14 +129,14 @@ public class MorningExercises {
 
     /*
     11. This loop is counting incorrectly. What needs to change in the loop for it to count properly?
-    */
+    */ //took out <= 
     public boolean returnCountCorrectTimes() {
         int[] arrayToLoopThrough = {4, 23, 9, 4, 33};
 
         int counter = 0;
 
         //     Start;       Keep going while         Increment by one;
-        for(int i = 0; i <= arrayToLoopThrough.length; i++) {
+        for(int i = 0; i < arrayToLoopThrough.length; i++) {
             counter = counter + 1;
         }
 
@@ -139,14 +145,14 @@ public class MorningExercises {
 
     /*
     12. We want this loop to only count every other item starting at zero. What needs to change in the loop for it to do that?
-    */
+    */ // change increment to +2 instead of +1
     public boolean returnSumEveryOtherNumber() {
         int[] arrayToLoopThrough = {4, 3, 4, 1, 4, 6};
 
         int sum = 0;
 
         //     Start;       Keep going while       Increment by;
-        for(int i = 0; i < arrayToLoopThrough.length; i = i + 1) {
+        for(int i = 0; i < arrayToLoopThrough.length; i = i + 2) {
             sum = sum + arrayToLoopThrough[i];
         }
 
