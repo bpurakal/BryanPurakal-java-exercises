@@ -148,7 +148,9 @@ public class AfternoonExercises {
 			return 0;}
 		else {
 			for(int i =0; i<nums.length; i++) {
-				if (nums[i] == 13) {}
+				if (nums[i] == 13) {
+					i++;
+				}
 				else {
 					sum += nums[i];
 				}
