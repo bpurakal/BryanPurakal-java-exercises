@@ -153,6 +153,7 @@ public class AfternoonExercises {
 				}
 				else {
 					sum += nums[i];
+					
 				}
 				}
 				return sum;
