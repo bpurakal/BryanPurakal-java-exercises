@@ -38,12 +38,12 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		String[] copy = new String[stringList.size()];
+		String[] copy = new String[stringList.size()]; //identify size of array with .size
 		
 		for (int i = 0; i <stringList.size(); i++){
-			copy[i] = stringList.get(i);
+			copy[i] = stringList.get(i); //get method gets value of parameter for stringList 
 		}
-		return copy;
+		return copy;  //return String Array Copy 
 	}
 	
 	/*
@@ -79,9 +79,17 @@ public class Exercises {
 	 reverseList( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"} )
 		-> ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
 	 */
+	
+	/* List is ordered, zero indexed, dynamic size
+.get(index)
+.add(element)
+.remove(index)
+.contains(element)
+.size()*/
+	
 	public List<String> reverseList(List<String> stringList) {
 		List<String> reversedList = new ArrayList<>(); //anytime we define List<String> on left we dont need String on right within <>
-		Stack<String> reversed = new Stack<>(); 
+		Stack<String> reversed = new Stack<>(); //FILO 
 		
 		for (String element: stringList) {
 			reversed.push(element);
@@ -258,7 +266,25 @@ public class Exercises {
 	 boardingGate( [0, -1, 44, 31, 17, 7, 27, 16, 26, 6] ) -> [7, 6, 17, 16, 27, 26]
 	 */
 	public List<Integer> boardingGate(List<Integer> seatNumberList) {
-		return null;
+		List<Integer> gates = new ArrayList <Integer>();
+	
+		
+		for (int i =0; i < seatNumberList.size(); i++) {
+			if (0 < seatNumberList.get(i) && seatNumberList.get(i) <11) {
+				gates.add(seatNumberList.get(i));
+			}
+		}
+		for (int i = 0; i < seatNumberList.size(); i++ ) {
+			if(10 < seatNumberList.get(i) && seatNumberList.get(i) <21) {
+				gates.add(seatNumberList.get(i));
+			}
+		}
+			for (int i =0; i < seatNumberList.size(); i++) {
+				if (20 < seatNumberList.get(i) && seatNumberList.get(i) <31) {
+					gates.add(seatNumberList.get(i));
+				}
+			}
+		return gates;
 	}
 
 }

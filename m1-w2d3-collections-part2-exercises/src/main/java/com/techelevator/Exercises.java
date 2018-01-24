@@ -1,6 +1,6 @@
 package com.techelevator;
 
-import java.util.Map;
+import java.util.*;
 
 public class Exercises {
 
@@ -34,8 +34,31 @@ public class Exercises {
 	 * 
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		//Set up
+		Map <String, String> animalsToGroups = new HashMap<>(); //creates our empty map to fill in our things 
+		animalsToGroups.put("rhino", "Crash"); //keys are case sensitive so we make them = to all lowercase later
+		animalsToGroups.put("giraffe", "Tower");
+		animalsToGroups.put("elephant", "Herd");
+		animalsToGroups.put("lion", "Pride");
+		animalsToGroups.put("crow", "Murder");
+		animalsToGroups.put("pigeon", "Kit");
+		animalsToGroups.put("flamingo", "Pat");
+		animalsToGroups.put("deer", "Herd");
+		animalsToGroups.put("dog", "Pack");
+		animalsToGroups.put("crocodile", "Float");
+		
+		// Get the group name
+		animalName = animalName.toLowerCase();
+		String groupName = animalsToGroups.get(animalName);
+		
+		if (groupName == null) {
+			groupName = "unknown";
+		}
+
+		return groupName;
+		
 	}
+	
 
 	/*
 	 * Given an String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
@@ -60,7 +83,25 @@ public class Exercises {
 	 * 
 	 */
 	public Double isItOnSale(String itemNumber) {
-		return null;
+		Map<String, Double> sales = new HashMap<>();
+		
+		sales.put("KITCHEN4001", 0.20);
+		sales.put("GARAGE1070", 0.15);
+		sales.put("LIVINGROOM", 0.10);
+		sales.put("KITCHEN6073", 0.40);
+		sales.put("BEDROOM3434", 0.60);
+		sales.put("BATH0073", 0.15);
+		
+		itemNumber = itemNumber.toUpperCase();
+		
+		Double item = sales.get(itemNumber);
+		
+		if (item == null) {
+			item = 0.00;
+		}
+		
+		return item;
+		
 	}
 	
 	/*
@@ -72,9 +113,22 @@ public class Exercises {
 	 * robPeterToPayPaul({"Peter": 2000, "Paul": 99}) → {"Peter": 1000, "Paul": 1099}
 	 * robPeterToPayPaul({"Peter": 2000, "Paul": 30000}) → {"Peter": 2000, "Paul": 30000}
 	 * 
-	 */
+	 *///Map<Key, Value>
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		
+		Integer peterMoney = peterPaul.get("Peter");
+		Integer paulMoney = peterPaul.get("Paul");
+		
+		if (peterMoney > 0 && paulMoney <1000) {
+			//put updates the value, must tell it which key to update. Put the key followed by value
+			
+			int moneyToPaul = peterMoney /2; //truncate values to make it easier 
+			peterPaul.put("Paul", paulMoney + moneyToPaul); //paul might already have money 
+			peterPaul.put("Peter", peterMoney - moneyToPaul);
+		}
+		
+		return peterPaul;
+		
 	}
 	
     /*
@@ -87,7 +141,21 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		
+		Integer peterMoney = peterPaul.get("Peter");
+		Integer paulMoney = peterPaul.get("Paul");
+		
+		if (peterMoney >= 5000 && paulMoney >= 10000){
+			
+			int peterShare = peterMoney/4;
+			int paulShare = paulMoney/4;
+			
+			peterPaul.put("Peter", peterMoney-peterShare); //Peter already has some money to subtract from 
+			peterPaul.put("Paul", paulMoney - paulShare);
+			peterPaul.put("PeterPaulPartnership", peterShare + paulShare);
+			
+		}
+		return peterPaul;
 	}
 	
 	/*
@@ -98,8 +166,14 @@ public class Exercises {
 	 * beginningAndEnding(["man", "moon", "main"]) → {"m": "n"}
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
-	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+	public Map<String, String> beginningAndEnding(String[] words) {//first char key last char value
+		Map <String, String> firstLast = new HashMap<>();
+		
+		for (String element: words) {
+			
+			firstLast.put(element.substring(0, 1), element.substring(element.length()-1));
+		}
+		return firstLast;
 	}
 	
 	/*
@@ -114,9 +188,19 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+		Map<String, Integer> stringCount = new HashMap<>();
+
+		for (String element : words) {
+			if (stringCount.containsKey(element)) {
+				stringCount.put(element.substring(0), stringCount.get(element) + 1);
+			} else {
+				stringCount.put(element.substring(0), 1);
+			}
+		}
+		System.out.println(stringCount);
+		return stringCount;
 	}
-	
+
 	/*
 	 * Given an array of int values, return a Map<Integer, Integer> with a key for each int, with the value the 
 	 * number of times that int appears in the array.
@@ -129,7 +213,17 @@ public class Exercises {
 	 * 
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> intCount = new HashMap<>();
+		
+		for (Integer element: ints) {
+			if (intCount.containsKey(element)) {
+				intCount.put(element, intCount.get(element)+1 ); //.get gets the elements value not the element, always the key : *value*
+			}else {
+				intCount.put(element, 1);
+			}
+		} 
+		System.out.println(intCount);
+		return intCount;
 	}
 	
 	/*
@@ -142,7 +236,17 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Boolean> booleanMap = new HashMap<>();
+		
+		for (String element: words) {
+			if (booleanMap.containsKey(element)) {
+				booleanMap.put(element, true);
+			} else {
+				booleanMap.put(element, false);
+			}
+			
+		}return booleanMap;
+				
 	}
 	
 	/*
@@ -156,8 +260,32 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse, Map<String, Integer> remoteWarehouse) {
-		return null;
-	}
+		//create a new map with all the data from the warehouses 
+		Map<String, Integer> combinedMap = new  HashMap<>();
+		
+		for (String element: mainWarehouse.keySet()) {
+			combinedMap.put(element,  (mainWarehouse.get(element)));
+		}
+		
+		for (String element: remoteWarehouse.keySet()) {
+			if (combinedMap.containsKey(element)) {
+				combinedMap.put(element, ((remoteWarehouse.get(element) + combinedMap.get(element))));
+			}
+			if (!combinedMap.containsKey(element)) {
+				combinedMap.put(element, (remoteWarehouse.get(element)));
+			}
+		}return combinedMap;
+		
+		}
+				//added all data from main warehouse to new map
+				//create a set with all the keys from the remotewarehouse so we can run through the keys and compare if its in the new map 
+				//run through all the keys from rWarehouse and compare them to keys in new map we created, if they exist, combine the values and add into new map
+				//if they dont exist just add the values
+			//return new combined map
+	
+	
+	
+	
 
 	/*
 	 * Just when you thought it was safe to get back in the water --- last2Revisited!!!!
@@ -175,6 +303,18 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> last2Revisted(String[] words) {
-		return null;
+		Map <String, Integer> l2R = new HashMap<>();
+		
+		for (String element: words){
+			int count = 0;
+			for (int i = 0; i < element.length()-2; i++) {
+				String secondToLast = element.substring(element.length()-2);
+				if(secondToLast.equals(element.substring(i, i+2))) {
+					count += 1;
+				}
+				l2R.put(element, count);
+				}
+			}
+		return l2R;
 	}
 }

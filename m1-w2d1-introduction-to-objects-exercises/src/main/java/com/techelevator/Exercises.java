@@ -272,7 +272,7 @@ public class Exercises {
 	 */
 	
 	public boolean hasBad(String str) {
-	if (str.length()==3 && str.equals("bad")){
+	/*if (str.length()==3 && str.equals("bad")){
 		return true;
 	}else if (str.length()>=4) { //i cheated on this logic part.
 		if (str.substring(0, 3).equals("bad")) {
@@ -283,7 +283,17 @@ public class Exercises {
 	}
 	else {
 		return false;
-	}
+	}*/
+		if (str.length()< 2) {
+			return false; 
+		} 
+		else {
+			if (str.length() == 3) {
+				return (str.substring(0, 3).equals("bad"));
+			}else {
+				return (str.substring(0,3).equals("bad") || str.substring(1,4).equals("bad"));
+			}
+		}
 	}
 
 	/*
