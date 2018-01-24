@@ -1,6 +1,6 @@
 package com.techelevator;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -22,7 +22,13 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"] 
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> copyOfStrings = new ArrayList<String>(); //have list of Strings..making into arrayList of strings
+		
+		for (String name: stringArray) {
+			copyOfStrings.add(name);
+		}
+		return copyOfStrings;
+		
 	}
 	
 	/*
@@ -32,7 +38,12 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] copy = new String[stringList.size()];
+		
+		for (int i = 0; i <stringList.size(); i++){
+			copy[i] = stringList.get(i);
+		}
+		return copy;
 	}
 	
 	/*
@@ -42,21 +53,47 @@ public class Exercises {
 	 no4LetterWords( {"Red", "White", "Blue"} )  ->  ["Red", "White"]
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
-	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+	public List<String> no4LetterWords(String[] stringArray) { //Method returning List<String>
+		//create an Array List
+		List<String> notFour = new ArrayList<String>(); 
+		//^List and Set are interfaces, instances of interface cannot be created
+		//whenever you hear List or ArrayList, think of for or for each
+		//for each goes through each element but have no idea where you are within Array/List
+		//for loop you know when and where to start, more control, reverse direction, how much to skip, etc;
+		
+		for(String element: stringArray)//String element bc Array is made of Strings 
+		{
+			if(element.length() != 4) {
+				notFour.add(element);
+			}
+		}
+		return notFour;
 	}
 
 
 	/*
 	 Given a List of Strings, return a new list in reverse order of the original. One obvious solution is to
 	 simply loop through the original list in reverse order, but see if you can come up with an alternative
-	 solution. (Hint: Think LIFO (i.e. stack))
+	 solution. (Hint: Think LIFO (i.e. stack))//Stacks are good at reversing strings 
 	 reverseList( ["purple", "green", "blue", "yellow", "green" ])  -> ["green", "yellow", "blue", "green", "purple" ]
 	 reverseList( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"} )
 		-> ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
 	 */
 	public List<String> reverseList(List<String> stringList) {
-		return null;
+		List<String> reversedList = new ArrayList<>(); //anytime we define List<String> on left we dont need String on right within <>
+		Stack<String> reversed = new Stack<>(); 
+		
+		for (String element: stringList) {
+			reversed.push(element);
+		}
+		while(!reversed.empty()) { //if whole stack is not empty (not specific elements) (each element being removed until empty)
+			reversedList.add(reversed.pop()); //adding popped element 
+			/* or lines 92 & 93 same as line 90;
+			 * String element = reversed.pop();
+			 * reversedList.add(element); */
+		}//for each loop shouldn't be used with manipulated lists especially remove functions 
+		
+		return reversedList; 
 	}
 
 	/*
@@ -66,7 +103,15 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		//when divide by two, we have to cast it correctly... so its not truncated.
+		//type Double with upper case D because collections cannot hold primitive types, only wrapper objects
+		List <Double> doubles = new ArrayList<>();
+		
+		for (Integer element: intArray) {
+			doubles.add(((double) (element)/2));
+		}
+		
+		return doubles;
 	}
 	
 	/*
@@ -76,7 +121,15 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		
+		//initialize before for or for each and then check each one, are you bigger than largest value if not you are largest value then return largest value
+		int largest = 0;
+		for (Integer element: integerList) {
+			if (element >= largest ) {
+				largest = element;
+			}
+		}
+		return largest;
 	}
 	
 	/*
@@ -86,8 +139,15 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]  
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
-	}
+		List <Integer> ints = new ArrayList<>();
+		
+		for (Integer element : integerArray) {
+			if (element % 2 == 1) {
+				ints.add(element);
+			}
+		}
+		return ints;
+	} // similar to boat and car one
 	
 	/* 
 	 Given a List of Integers, and an int value, return true if the int value appears two or more times in 
@@ -97,6 +157,15 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		int count = 0;
+		for (Integer element : integerList) {
+			if(element == intToFind) {
+				count++;
+				if (count >=2) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 	
@@ -113,7 +182,22 @@ public class Exercises {
 	 HINT: To convert an integer x to a string you can call x.toString() in your code (e.g. if x = 1 then x.ToString() equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> list = new ArrayList<>(); //lists are only interfaces dont know how to do anything.. arrays know how to maintain a set, control lists, hashsets,etc
+											//list is the contract and array list is fulfilling that contract
+											//another example is that set is contract and Hashset is fulfilling that contract. 
+		for (Integer element: integerArray) {
+			if (element % 3 == 0 && element % 5 ==0) {
+				list.add("FizzBuzz");
+			}else if (element % 3 == 0) {
+				list.add("Fizz");
+			}else if (element % 5 == 0) {
+				list.add("Buzz");
+			}else {
+				list.add(element.toString());
+			}
+		}
+		
+		return list; //should automatically return list at beginning 
 	}
 
 	/*
@@ -123,7 +207,15 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
-		return null;
+		Set<String> values = new HashSet<>();
+		List<String> list = new ArrayList<>();
+		for (String element: stringList) {
+			values.add(element);
+		}
+		for (String element: values) {
+			list.add(element);
+		}
+		return list;
 	}
 
 	/*
@@ -134,7 +226,26 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		List<Integer> weave = new ArrayList<>();
+		int i = 0;
+		for (i = 0; i < listOne.size() && i < listTwo.size(); i++) {
+			weave.add(listOne.get(i));
+			weave.add(listTwo.get(i));
+		}
+
+		if (listOne.size() > listTwo.size()) {
+			for(int j = i; j < listOne.size(); j++) {
+				weave.add(listOne.get(j));
+			}
+		}
+
+		if (listTwo.size() > listOne.size()) {
+			for(int k = i; k < listTwo.size(); k++) {
+				weave.add(listTwo.get(k));
+			}
+		}
+		return weave;
+		
 	}
 
 	/*

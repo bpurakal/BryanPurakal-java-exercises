@@ -271,21 +271,10 @@ public class Exercises {
 	 hasBad("xxbadxx") → false
 	 */
 	
-	/*int len = str.length();
-	if(len == 3 && str.equals("bad"))
-		return true;
-	else if(len >= 4)
-	{
-		if(str.substring(0, 3).equals("bad"))
-			return true;
-		return str.substring(1, 4).equals("bad");
-	}
-	else
-		return false;*/
 	public boolean hasBad(String str) {
 	if (str.length()==3 && str.equals("bad")){
 		return true;
-	}else if (str.length()>=4) {
+	}else if (str.length()>=4) { //i cheated on this logic part.
 		if (str.substring(0, 3).equals("bad")) {
 			return true;
 		}else {
@@ -304,7 +293,11 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return null;
+		String repeatedString = ""; //initialized to empty
+		for (int i =0; i <n; i++) { //run until number n 
+			repeatedString += str; //adding str to repeated string
+		}
+		return repeatedString; //return repeated string 
 	}
 
 	/*
@@ -315,7 +308,17 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
+		String nCopies = "";
+		//str = Chocolate; int n = 2; return "ChoCho"
+		for (int i =0; i < str.length()-1; i++) {
+			if (i<3) {
+				return str;
+		}else {
+			str = str.substring(0, 2);
+	
+		}
+		}
+		return str;
 	}
 
 	/*
@@ -325,7 +328,13 @@ public class Exercises {
 	 countXX("xxxx") → 
 	 */
 	public int countXX(String str) {
-		return 0;
+		int count = 0; //initialize as zero
+		for (int i =0; i <str.length()-1; i++) {
+			if (str.substring(i, i+2).equals("xx")) {
+				count +=1;
+			}
+		}
+		return count;
 	}
 
 	/*
