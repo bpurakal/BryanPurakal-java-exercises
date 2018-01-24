@@ -313,13 +313,12 @@ public class Exercises {
 		for (int i =0; i < str.length()-1; i++) {
 			if (i<3) {
 				return str;
-		}else {
-			str = str.substring(0, 2);
-	
+			}else {
+				str = str.substring(0, 2);
+			}
 		}
+			return str;
 		}
-		return str;
-	}
 
 	/*
 	 Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
@@ -343,9 +342,17 @@ public class Exercises {
 	 doubleX("axaxax") → false
 	 doubleX("xxxxx") → true
 	 */
-	public boolean doubleX(String str) {
-		return false;
-	}
+	public boolean doubleX(String str)  {
+        int i = str.indexOf( 'x' );
+
+        if ( i == -1 || i == str.length() - 1 )
+        {
+            return false;
+        }
+
+        return str.substring( i, i + 2 ).equals( "xx" );
+    }
+	
 
 	/*
 	 Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
@@ -354,8 +361,14 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
-	}
+		int length = str.length();
+		String temp = "";
+		
+		for (int i = 0; i < length; i = i + 2) {
+			temp += str.charAt(i);}
+		 return temp;
+		 }
+
 
 	/*
 	 Given a non-empty string like "Code" return a string like "CCoCodCode".
@@ -364,7 +377,14 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		
+		int length = str.length();
+
+		String temp = "";
+
+		for (int i = 0; i < length + 1; i++) {
+		temp += str.substring(0,i);}
+		return temp;
 	}
 
 	/*
@@ -375,8 +395,23 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
-	}
+		if (str.length() < 2) {
+		 	return 0;}
+	
+	   String endOfString = str.substring(str.length()-2);
+
+	   int count = 0;
+
+	   for (int i=0; i<str.length()-2; i++) {
+	     String sub = str.substring(i, i+2);
+	     if (sub.equals(endOfString)) {
+	       count++;
+	 
+	     }
+	   }
+	    return count;
+		}
+	
 
 	/*
 	 Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end 
@@ -386,7 +421,20 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+
+		String result = "";
+
+		int length = str.length();
+
+		for (int i = 0; i < length; i++) {
+			
+			char temp = str.charAt(i);
+			
+			if (!(i > 0 && i < length - 1 && temp == 'x'))
+				result = result + temp;
+		}
+		return result;
+
 	}
 
 	/*
