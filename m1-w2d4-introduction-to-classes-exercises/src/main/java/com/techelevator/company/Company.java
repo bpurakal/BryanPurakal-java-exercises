@@ -31,7 +31,7 @@ public class Company {
 	}
 	public void setRevenue(double revenue) {
 		this.revenue = revenue;
-		//this.instanceVariable = Paramater;
+		//this.instanceVariable = parameter;
 	}
 	public double getExpenses() {
 		return expenses;
