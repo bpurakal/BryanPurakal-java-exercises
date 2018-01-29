@@ -5,11 +5,10 @@ public class HomeworkAssignment {
 		private int totalMarks; //The total number of correct marks received on the assignment.
 		private int possibleMarks; //The number of possible marks on the assignment.
 		private String submitterName; //	The submitter's name for the assignment.
-		private String letterGrade;//(derived) The letter grade for the assignment. Derived attribute that is calculated using totalMarks and possibleMarks.
-		private int percentage = 100* (possibleMarks/totalMarks);
+		//private String letterGrade;//(derived) The letter grade for the assignment. Derived attribute that is calculated using totalMarks and possibleMarks.
 		
 		public HomeworkAssignment(int possibleMarks) {
-			
+			this.possibleMarks = possibleMarks;
 		}
 		
 		public int getTotalMarks() {	
@@ -33,7 +32,7 @@ public class HomeworkAssignment {
 		}
 
 		public String getLetterGrade() {
-			
+			int percentage = (100 * totalMarks/possibleMarks);
 		if (percentage >= 90) {
 			return "A";
 		} else if (percentage >= 80 && percentage <=89) {

@@ -17,6 +17,20 @@ Things to look/test for
 
 
 ## Fruit Tree
+/*
+Successes:
+if i call a constructor, are var iniitated
+if i call getters, i get the values
+if i pick less fruit, it returns true
+if i pick less fruit, tree should subract fruit
+Fails:
+if i pick more fruit, it should return false;
+if i pick more fruit, number of fruit should not change. 
+if I pick negative fruit, it should return false
+if i pick one at a time
+if one fruit, can pick one fruit 
+if no fruit, can not pick fruit
+ */
 
 Things to look/test for
 

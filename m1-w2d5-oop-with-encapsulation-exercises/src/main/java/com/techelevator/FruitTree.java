@@ -16,10 +16,12 @@ public class FruitTree {
 	 public boolean pickFruit(int numberToPick) { //can be named numberOfPiecesToRemove
 		if (numberToPick > piecesOfFruitLeft) {
 			return false;
-		}else {
+		}else if (numberToPick <= piecesOfFruitLeft){
 			piecesOfFruitLeft -= numberToPick;
 			return true;
 		}
+		return false;
+		
 	}
 	 
 	 public String getTypeOfFruit() {
