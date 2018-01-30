@@ -32,8 +32,8 @@ public class FruitTreeTest {
 	@Test
 	public void testPickFruitDoesNotAllowNegatives() {
 		boolean result = tree.PickFruit(-1); //Act 
-		assertEquals(false, result);
-		assertEquals(10, tree.getPiecesOfFruitLeft());
+		assertEquals(false, result); //assert
+		assertEquals(10, tree.getPiecesOfFruitLeft());//assert
 	}
 
 }

@@ -30,7 +30,12 @@ public class FruitTree {
     public int getPiecesOfFruitLeft() {
         return piecesOfFruitLeft;
     }
-
+    
+    public boolean pickFruitDoesNotAllowNegatives (int numberOfPieces) {
+    		if ( numberOfPieces < piecesOfFruitLeft) {
+    			return true;
+    		} return false;
+    }
     /**
      * Picks fruit off of the tree and reduces the number of remaining pieces. 
      * @param numberOfPieces number of fruit pieces to remove

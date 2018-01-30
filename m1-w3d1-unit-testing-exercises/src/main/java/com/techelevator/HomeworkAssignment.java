@@ -24,10 +24,10 @@ public class HomeworkAssignment {
 
     /**
      * Total number of marks received
-     * @param totalMarks
+     * @param d
      */
-    public void setTotalMarks(int totalMarks) {
-    	this.totalMarks = totalMarks;
+    public void setTotalMarks(double d) {
+    	this.totalMarks = d;
     }
 
     /**
