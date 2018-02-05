@@ -9,7 +9,13 @@ public class Exercises {
 	 arrayCount9([1, 9, 9, 3, 9]) → 3
 	 */
 	public int arrayCount9(int[] nums) {
-		return 0;
+		int count = 0;
+		for(int i = 0; i < nums.length; i++) {
+			
+			if ( nums[i] == 9) {
+				count++;
+			}
+		} return count;
 	}
 
 	/*
@@ -19,7 +25,12 @@ public class Exercises {
 	 arrayFront9([1, 2, 3, 4, 5]) → false
 	 */
 	public boolean arrayFront9(int[] nums) {
-		return false;
+		boolean front9 = false;
+		for (int i = 0; (i < 4 && i < nums.length); i++) {
+			if (nums[i] == 9) {
+				front9 = true;
+			}
+		} return front9;
 	}
 
 	/*
@@ -29,7 +40,11 @@ public class Exercises {
 	 array123([1, 1, 2, 1, 2, 3]) → true
 	 */
 	public boolean array123(int[] nums) {
-		return false;
+		for (int i = 0; i < nums.length-2; i++) {
+		if (nums[i] == 1 && nums[i+1] == 2 && nums[i+2] == 3) {
+			return true;
+			}
+		} return false;
 	}
 	
 	/*
@@ -40,7 +55,12 @@ public class Exercises {
 	 noTriples([1, 1, 1, 2, 2, 2, 1]) → false
 	 */
 	public boolean noTriples(int[] nums) {
-		return false;
+		boolean noTriples = false;
+		for (int i = 0; i < nums.length-2; i++) {
+			if (nums[i] != nums[i+1] && nums[i] != nums[i+2]) {
+				noTriples = true;
+				}
+			} return noTriples;
 	}
 
 	/*
