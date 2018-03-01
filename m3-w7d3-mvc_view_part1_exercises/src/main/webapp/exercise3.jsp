@@ -14,15 +14,17 @@
 		<h1>Exercise 3 - Echo</h1>
 		
 		<ul>
-		
+		<%-- 
 		<c:set var="word" value=$"{param.word}"/>
 				<c:set var="count" value=$"{param.count}"/>
 								<c:if test = "${empty param.word}"/>
 									<c:set var="count" value="30"/>
-								<c:if/>
+								</c:if>
+		<c:foreach begin="1" end="${count}" var="iter">
+			<li style="font-size:${count-iter}px;"><c:out value="${word}"></c:out>
+		</c:foreach>		
 				
-				
-		
+		--%>
 		<%--
 			Given two query string parameters, "word" and "count":
 			
