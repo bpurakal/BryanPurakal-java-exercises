@@ -18,7 +18,7 @@
 
 
     <div id="task-list">
-        <form id="new-task" onsubmit="addTask()" autocomplete="ignore">
+        <form id="new-task" autocomplete="ignore">
             <input type="checkbox" onchange="toggleAll()" />
             <input autocomplete="false" type="text" name="newTaskValue" placeholder="What needs to be done?" />
         </form>
@@ -49,15 +49,14 @@
 
 
     <!-- Remove this before distributing -->
-    <template id="newTaskTemplate">
-        <div class="task">
+    
+        <div class="task" style="display:none" id="taskTemplate">
             <input onchange="completeTask()" type="checkbox">
             <label onclick="labelClick(this)"></label>
             <input onkeyup="checkForEnter(this)" type="text" class="hidden" />
             <span onclick="deleteTask(this)">x</span>
         </div>
-    </template>
-
+    
     <div id="requirements">
         <h2>Requirements</h2>
         <ol>
