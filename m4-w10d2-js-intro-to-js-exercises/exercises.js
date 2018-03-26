@@ -10,71 +10,146 @@ function sumDouble(x, y) {
 // 2. hasTeen
 function hasTeen(x, y, z) {
 
-    if ((x > 12 && x < 20) || (y > 12 && y < 20) || (z > 12 && z < 20)){
+    if ((x > 12 && x < 20) || (y > 12 && y < 20) || (z > 12 && z < 20)) {
         return true;
     }
-    else{
-    return false;
+    else {
+        return false;
     }
 }
 
 //3. lastDigit 
 
-function lastDigit(x,y){
-    if (x%10 === y%10){
+function lastDigit(x, y) {
+    if (x % 10 === y % 10) {
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
 
 //4. seeColor
+function seeColor(strX){
+if ((strX.startsWith("red"))) {
+    return "red";
+} else if ((strX.startsWith("blue"))){
+    return "blue";
+}else {
+    return "";
+}
+}
+
+//5. middleThree
+function middleThree(strX){
+    if (strX.length >=3){
+        let middle = strX.length/2;
+        let middleThree = strX.substring(middle-1, middle+2);
+        return middleThree;
+    }
+
+}
+
+//6. frontAgain
+
+function frontAgain(strX){
+    let strLast = strX.length;
+    if ((strX.length>=2) && (strX.substring(0,2) === strX.substring(strLast-2, strLast))){
+        return true;
+    }
+    else {
+        return false;
+    }
+    }
 
 
 //7. Alarm Clock
 
-function alarmClock(day, isVacation){
+function alarmClock(day, isVacation) {
     let dayOfWeek;
-    if (day===0){
+    if (day === 0) {
         dayOfWeek = "Sunday";
     }
-    else if (day===1){
+    else if (day === 1) {
         dayOfWeek = "Monday";
     }
-    else if (day===2){
+    else if (day === 2) {
         dayOfWeek = "Tuesday";
     }
-    else if (day===3){
+    else if (day === 3) {
         dayOfWeek = "Wednesday";
     }
-    else if (day===4){
+    else if (day === 4) {
         dayOfWeek = "Thursday";
     }
-    else if (day===5){
+    else if (day === 5) {
         dayOfWeek = "Friday";
     }
     else {
         dayOfWeek = "Saturday";
     }
-    if (day === 0 || day === 6){
-        if (isVacation){
+    if (day === 0 || day === 6) {
+        if (isVacation) {
             return `${dayOfWeek} off`;
         }
-        else{
+        else {
             return `${dayOfWeek} 10:00`;
         }
     }
-    else{
-        if (isVacation){
+    else {
+        if (isVacation) {
             return `${dayOfWeek} 10:00`;
         }
-        else{
+        else {
             return `${dayOfWeek} 7:00`;
         }
     }
 
 }
+
+//8. Make Middle
+function makeMiddle(nums){
+    let newArray = [];
+	let half = nums.length/2;
+	let midArr1= nums[half-1];
+	let midArr2 = nums[half];
+	return midArr1+midArr2;
+
+}
+
+//9. oddOnly
+function oddOnly(o){
+    return o.filter(function(val){return val%2===1})
+  }
+
+
+//10. weave
+
+function weave(){
+
+}
+
+//11. cigar 
+function cigarParty(cigars, isWeekend) {
+    return cigars >= 40 && (cigars <= 60 || isWeekend);
+}
+
+//12. Fizzbuzz
+function fizzBuzz(x){
+    if (x%3===0 && x%5===0){
+        return "FizzBuzz"
+    }
+    else if (x%3===0){
+        return "Fizz"
+    }
+    else if (x%5===0){
+        return "Buzz"
+    }
+    else{
+        return x;
+    }
+}
+
 
 //13. countValues problem
 function countValues(array) {

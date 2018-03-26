@@ -85,7 +85,7 @@ For each exercise, create the function and implement it inside of `exercises.js`
 		fizzBuzz(15) → "FizzBuzz"
 		fizzBuzz(8) → 8
 
-14. **CountValues** Write a function that accepts an array of integer values, count of the number of times each value is found in the array, and then display the values and their count.
+13. **CountValues** Write a function that accepts an array of integer values, count of the number of times each value is found in the array, and then display the values and their count.
 
 		 countValues([1, 99, 43, 2, 55, 78, 99, 2345, 438, 2, 99, 107])  → 	
 			1 : 1
@@ -98,7 +98,7 @@ For each exercise, create the function and implement it inside of `exercises.js`
 			438 : 1
 			107 : 1
 
-15. **Filter Evens** Write a function that filters an array to only include even numbers.
+14. **Filter Evens** Write a function that filters an array to only include even numbers.
 
 	```
 	filterEvens([]) → []
@@ -107,7 +107,7 @@ For each exercise, create the function and implement it inside of `exercises.js`
 	filterEvens([100, 8, 21, 24, 62, 9, 7]) → [100, 8, 24, 62]
 	```
 
-16. **Filter Numbers Greater than 100** Write a function that filters numbers greater than 100.
+15. **Filter Numbers Greater than 100** Write a function that filters numbers greater than 100.
 
 	```
 	filterBigNumbers([7, 10, 121, 100, 24, 162, 200]) → [121, 100, 162, 200]
@@ -115,14 +115,14 @@ For each exercise, create the function and implement it inside of `exercises.js`
 	filterBigNumbers([]) → []
 	```
 
-17. **Filter Numbers that are Multiples of X** Write a function to filter numbers that are a multiple of a paremeter, `x` passed in.
+16. **Filter Numbers that are Multiples of X** Write a function to filter numbers that are a multiple of a paremeter, `x` passed in.
 
 	```
 	filterMultiplesOfX([3, 5, 1, 9, 18, 21, 42, 67], 3) → [3, 9, 18, 21, 42]
 	filterMultiplesOfX([3, 5, 10, 20, 18, 21, 42, 67], 5) → [5, 10, 20]
 	```
 
-18. **Create Object** Write a function that creates an object with a property called firstName, lastName, and age. Populate the properties with your values.
+17. **Create Object** Write a function that creates an object with a property called firstName, lastName, and age. Populate the properties with your values.
 
 	```
 	createObject() →
@@ -134,7 +134,7 @@ For each exercise, create the function and implement it inside of `exercises.js`
 	}
 	```
 
-19. **Filter Inventors** Given an array of inventors, filter the list to include any inventors whose first or last name starts with a vowel.
+18. **Filter Inventors** Given an array of inventors, filter the list to include any inventors whose first or last name starts with a vowel.
 
 	```
 	Sample Inventors
