@@ -31,6 +31,12 @@ public class MessageController {
 		return "messages";
 	}
 	
+	@RequestMapping(path="/messages/delete/{id}", method=RequestMethod.POST)
+	public String deleteMessage(@PathVariable long id) {
+		messageDao.deleteMessage(id);
+		return "redirect";
+	}
+	
 	@RequestMapping(path="/users/{userName}/messages/new", method=RequestMethod.GET)
 	public String displayMessageForm() {
 		return "newMessage";

@@ -18,7 +18,7 @@ function hasTeen(x, y, z) {
     }
 }
 
-//3. lastDigit 
+//3. lastDigit
 
 function lastDigit(x, y) {
     if (x % 10 === y % 10) {
@@ -129,7 +129,7 @@ function weave(){
 
 }
 
-//11. cigar 
+//11. cigar
 function cigarParty(cigars, isWeekend) {
     return cigars >= 40 && (cigars <= 60 || isWeekend);
 }
@@ -173,7 +173,19 @@ function filterEvens(array) {
     // return array.filter(function(element){
     //     return element %2 === 0;
     // })
-    //fat arrow method might be an easier way to write this : 
+    //fat arrow method might be an easier way to write this :
     //arguments, fat arrow, pass in thing that i want function to return
     return array.filter((element) => element % 2 === 0);
+}
+
+// {"firstName:": "Testy",
+// "lastName": "McTester",
+// "age:55"}
+
+//18. Filter inventors
+function filterInventors(array){
+  const inventors = array.filter((element) => element.first.startsWith("A") || element.first.startsWith("E")|| element.first.startsWith("I") || element.first.startsWith("O") || element.first.startsWith("U")||
+  element.last.startsWith("A") || element.last.startsWith("E") || element.last.startsWith("I") || element.last.startsWith("O")|| element.last.startsWith("U"));
+console.log (inventors);
+return inventors;
 }
